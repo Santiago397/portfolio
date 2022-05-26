@@ -1,21 +1,26 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { HiOutlineMail } from 'react-icons/hi'
-import { BsFillPersonLinesFill } from 'react-icons/bs'
 import Logo from '../assets/logo.png'
 import { Link } from 'react-scroll'
+import LanguageToggle from './LanguageToggle'
+import { useLanguage } from '../context/Languaje'
 
 const Navbar = () => {
 
     const [nav, setNav] = useState(false);
+    const { language } = useLanguage()
+
     const handleClick = () => {
         setNav(!nav)
     }
 
     return (
         <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
-            <div>
-                <img src={Logo} alt="Logo image" style={{ width: '70px' }} />
+            <div className='flex items-center'>
+                <img src={Logo} alt="Logo" style={{ width: '70px' }} />
+                <span className='md:hidden '>
+                    <LanguageToggle />
+                </span>
             </div>
             {/* Hamburger */}
             <div onClick={() => handleClick()} className='md:hidden z-10'>
@@ -26,20 +31,21 @@ const Navbar = () => {
 
             {/* Menu */}
             <ul className='hidden md:flex'>
-                <MenuLink location={'home'} title={'Home'} />
-                <MenuLink location={'about'} title={'About'} />
-                <MenuLink location={'skills'} title={'Skills'} />
-                <MenuLink location={'work'} title={'Work'} />
-                <MenuLink location={'contact'} title={'Contact'} />
+                <MenuLink location={'home'} title={language ? 'Home' : 'Inicio'} />
+                <MenuLink location={'about'} title={language ? 'About' : 'Acerca'} />
+                <MenuLink location={'skills'} title={language ? 'Skills' : 'Habiidades'} />
+                <MenuLink location={'work'} title={language ? 'Work' : 'Proyectos'} />
+                <MenuLink location={'contact'} title={language ? 'Contact' : 'Contacto'} />
+                <LanguageToggle />
             </ul>
 
             {/* Mobile menu*/}
             <ul className={nav ? `absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center` : `hidden`}>
-                <MenuMobile location={'home'} title={'Home'} setNav={setNav} nav={nav} />
-                <MenuMobile location={'about'} title={'About'} setNav={setNav} nav={nav} />
-                <MenuMobile location={'skills'} title={'Skills'} setNav={setNav} nav={nav} />
-                <MenuMobile location={'work'} title={'Work'} setNav={setNav} nav={nav} />
-                <MenuMobile location={'contact'} title={'Contact'} setNav={setNav} nav={nav} />
+                <MenuMobile location={'home'} title={language ? 'Home' : 'Inicio'} setNav={setNav} nav={nav} />
+                <MenuMobile location={'about'} title={language ? 'About' : 'Acerca'} setNav={setNav} nav={nav} />
+                <MenuMobile location={'skills'} title={language ? 'Skills' : 'Habiidades'} setNav={setNav} nav={nav} />
+                <MenuMobile location={'work'} title={language ? 'Work' : 'Proyectos'} setNav={setNav} nav={nav} />
+                <MenuMobile location={'contact'} title={language ? 'Contact' : 'Contacto'} setNav={setNav} nav={nav} />
             </ul>
             {/* Social Icons */}
             <div className='hidden lg:flex fixed flex-col top-[35%] left-0'>

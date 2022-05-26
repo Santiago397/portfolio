@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import Link from 'react-scroll/modules/components/Link'
+import { useLanguage } from '../context/Languaje';
+import Divider from './Divider';
 
 const Home = () => {
+
+    const { language } = useLanguage()
+    const [btnClick, setBtnClick] = useState(false);
+
+    const handleClick = () => {
+        setBtnClick(true)
+        setTimeout(() => {
+            setBtnClick(false)
+        }, 2000)
+    }
+
+
+
     return (
         <div name='home' className='w-full h-screen bg-[#0a192f]'>
             {/* Container */}
-            <div className='max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full text-gray-300'>
-                <p className='text-pink-600'>Hi, my name is</p>
-                <h1 className='text-4xl sm:text-7xl font-bold text-gray-50'>Santiago Monrroy</h1>
-                <h2 className='text-4xl sm:text-7xl font-bold text-gray-400'>I'm a Full Stack Developer</h2>
-                <p className='text-gray-400 py-4 max-w-xl'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi deserunt omnis ipsam amet,
-                    placeat eos officiis ratione dolore! Laborum eos animi dolores aperiam reiciendis dolore placeat
-                    expedita ratione nostrum.
-                </p>
-                <div className='my-2'>
-                    <Link to='work' smooth={true} duration={500}>
-                        <button className='flex items-center group text-white border-2 px-3 py-1 hover:bg-pink-500 hover:border-pink-500 duration-300'>
-                            View Work
+            <div className={`max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full text-gray-300 `}>
+                <p className={`text-pink-600 ${btnClick ? '-translate-x-full duration-1000' : ''}`}>{language ? "Hey! What's up? ✌" : '¿Qué tal? ✌'}</p>
+                <h1 className={`text-4xl sm:text-7xl font-bold text-gray-50 ${btnClick ? '-translate-x-full duration-1000' : ''}`}>Santiago Monrroy</h1>
+                <h2 className={`text-2xl sm:text-5xl font-bold text-gray-400 ${btnClick ? '-translate-x-full duration-[2000ms]' : ''}`}>{language ? 'Junior Developer' : 'Desarrollador Junior'}</h2>
+                <div className={`flex my-2 w-full ${btnClick ? '-translate-x-full duration-[2000ms]' : ''}`}>
+                    <Link to='work' smooth={true} duration={1250}>
+                        <button onClick={() => handleClick()} className={`flex items-center group  text-white border-2 px-3 py-1 hover:bg-pink-500 hover:border-pink-500 duration-300`}>
+                            {language ? 'View Work' : 'Proyectos'}
                             <span className='group-hover:rotate-90'>
                                 <HiArrowNarrowRight className='ml-2' />
                             </span>
@@ -26,6 +36,7 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
+            <Divider />
         </div>
     )
 }
