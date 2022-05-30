@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logoaz.png'
 import { Link } from 'react-scroll'
 import LanguageToggle from './LanguageToggle'
 import { useLanguage } from '../context/Languaje'
@@ -50,12 +50,12 @@ const Navbar = () => {
             {/* Social Icons */}
             <div className='hidden lg:flex fixed flex-col top-[35%] left-0'>
                 <ul>
-                    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 hover:bg-gray-500'>
+                    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 hover:bg-blue-400'>
                         <a href="https://www.linkedin.com/in/sanmon12/" className='flex justify-between items-center w-full'>
                             LinkedIn <FaLinkedin size={30} />
                         </a>
                     </li>
-                    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 hover:bg-gray-500'>
+                    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 hover:bg-blue-400'>
                         <a href="https://github.com/Santiago397" className='flex justify-between items-center w-full'>
                             Github <FaGithub size={30} />
                         </a>

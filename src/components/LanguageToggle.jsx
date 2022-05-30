@@ -8,7 +8,7 @@ const LanguageToggle = () => {
 
     return (
         <button className='mx-5' onClick={() => setLanguage(!language)}>
-            <IoLanguageOutline className={language ? 'text-white' : 'text-pink-600'} />
+            <IoLanguageOutline className={language ? 'text-white' : 'text-blue-400'} />
         </button>
     )
 }

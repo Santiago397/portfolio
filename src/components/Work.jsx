@@ -1,6 +1,6 @@
 import React from 'react'
 import BuenosAires from '../assets/BuenosAires.png'
-import QQSM from '../assets/QQSM.png'
+import QQSM from '../assets/ww.png'
 import TraneApp from '../assets/trane.png'
 import { useLanguage } from '../context/Languaje'
 
@@ -10,7 +10,7 @@ const Work = () => {
         <div name='work' className='w-full md:h-screen text-gray-300 bg-[#0a192f] '>
             <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
                 <div className='pb-8'>
-                    <h1 className='text-3xl font-bold border-b-4 border-pink-600 inline'>
+                    <h1 className='text-3xl font-bold border-b-4 border-blue-400 inline'>
                         {language ? 'Work' : 'Proyectos'}
                     </h1>
                     <p className='py-4'>{language ? '// Check out some of my recent works.' : '// Échale un ojo a los proyectos que he realizado'}</p>

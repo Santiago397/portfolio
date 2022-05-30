@@ -10,7 +10,7 @@ const About = () => {
             <div className="flex flex-col justify-center items-center w-full h-full">
                 <div className='max-w-[1000px] w-full grid grid-cols-2 gap-8'>
                     <div className='sm:text-right pb-8 pl-4'>
-                        <h1 className='text-4xl font-bold inline border-pink-600 border-b-4'>
+                        <h1 className='text-4xl font-bold inline border-blue-400 border-b-4'>
                             {language ? 'About' : 'Sobre'}
                         </h1>
                     </div>
